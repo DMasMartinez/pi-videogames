@@ -1,0 +1,17 @@
+
+/* .contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    
+} */
+.contenedor {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.elemento {
+    flex: 0 0 calc(50% - 10px); 
+    margin: 5px;
+}

@@ -1,0 +1,17 @@
+
+
+.framepagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.botonpagination {
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color: #0820d4;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

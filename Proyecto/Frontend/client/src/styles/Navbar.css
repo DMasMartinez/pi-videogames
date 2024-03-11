@@ -1,0 +1,39 @@
+/* .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 15px;
+}
+
+.lista {
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5% 0 5%;
+} */
+
+.navbar {
+    background-color: #333; /* Color de fondo */
+    overflow: hidden; /* Para manejar los elementos flotantes */
+}
+
+.navbar a {
+    float: left; /* Hacer que los elementos del navbar se coloquen en línea */
+    display: block; /* Mostrar los elementos como bloques */
+    color: white; /* Color del texto */
+    text-align: center; /* Alinear el texto al centro */
+    padding: 14px 16px; /* Espaciado interno (arriba y abajo, izquierda y derecha) */
+    text-decoration: none; /* Quitar subrayado */
+}
+  
+.navbar a:hover {
+    background-color: #ddd; /* Cambio de color de fondo al pasar el cursor */
+    color: black; /* Cambio de color de texto al pasar el cursor */
+}
+
+.active {
+    background-color: #4CAF50; /* Color de fondo del elemento activo */
+}

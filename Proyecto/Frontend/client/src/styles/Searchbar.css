@@ -1,0 +1,40 @@
+.searchbar {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 15px;
+}
+.label {
+    color: white;
+    margin-left: 8px;
+    margin-right: 10px;
+}
+
+.boton-gradiente {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #4CAF50, #457fa0);
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+  
+.boton-gradiente:hover {
+    background: linear-gradient(to bottom, #45a049, #4CAF50);
+}
+.pestana {
+    
+    display: block;
+    background-color: #f2f2f2;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-right: 5px;
+  }
+/* justify-content: space-around; */

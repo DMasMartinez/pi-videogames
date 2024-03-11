@@ -1,0 +1,43 @@
+.framegamecard{
+    border: red outset;
+    border-radius: 10px;
+    border-width: 10px;
+    background-color: rgba(255,255,0, 0.7);
+    background-size: 400px 500px;
+    height: 500px;
+    width: 400px;
+    margin: 0 5px;
+    flex: 0 0 calc(60% - 10px); /* Establece el ancho de cada elemento de paginación */
+    max-width: calc(60% - 10px); /* Establece el ancho máximo */   
+}
+
+.image img{
+    border-radius: 10px;
+    margin: 50px 50px 0px 5px;
+    height: 300px;
+    width: 400px;
+    flex: 0 0 calc(100% - 10px); /* Establece el ancho de cada elemento de paginación */
+    max-width: calc(100% - 10px); /* Establece el ancho máximo */   
+}
+
+.cardtext{
+    color: white;
+    border: black;
+    background-color: rgba(255, 100, 100, 0.6);
+}
+
+a{
+    display: block;
+    font-size: xx-large;
+    text-align: center;
+    color: #333;
+    text-decoration: dashed;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* background-color: rgba(255,0,0, 0.7); */
+/* font-size: xx-large;
+text-decoration: dotted;
+display: block; */
