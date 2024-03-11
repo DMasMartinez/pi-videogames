@@ -26,13 +26,13 @@ const Home =(props)=>{
         dispatch(allgames())
     },[])
 
-    useEffect(async()=>{
-        if (juegos.length<10){
-            await fetch(`http:localhost:3001/game/?name=?${juegos.name}`)
-                .then(res=>res.json())
-                .then(data=>setGenerobdd(data.Genres))
-        }
-    },[])
+    // useEffect(async()=>{
+    //     if (juegos.length<10){
+    //         await fetch(`http:localhost:3001/game/?name=?${juegos.name}`)
+    //             .then(res=>res.json())
+    //             .then(data=>setGenerobdd(data.Genres))
+    //     }
+    // },[])
     // useEffect(()=>{
     //     props.showgames()
     // },[])
