@@ -36,7 +36,7 @@ const Home =(props)=>{
     // useEffect(()=>{
     //     props.showgames()
     // },[])
-    console.log(generobdd)
+    console.log(juegos)
     return (
         <div class="contenedor">
             
