@@ -1,4 +1,4 @@
-import {ALLGAMES,GAMESEARCH,ALLGENRES,GAMESBDD, SETALLGAMES, SETPAGEUP, SETPAGEDOWN,SETPAGE} from './action-type'
+import {ALLGAMES,GAMESEARCH,ALLGENRES,GAMESBDD, SETALLGAMES, SETPAGEUP, SETPAGEDOWN,SETPAGE, SETCOUNT} from './action-type'
 
 export const allgames =()=>{
     return async function (dispatch){
@@ -17,6 +17,16 @@ export const allgames =()=>{
 
 export const gamesearch = (name) =>{
     return async function (dispatch){
+        // return new Promise(async (resolve, reject) => {
+        //     try {
+        //       const response = await fetch(`http://localhost:3001/game/?name=${name}`);
+        //       const data = await response.json();
+        //       const newdata = resolve(data)
+        //       dispatch({ type: GAMESEARCH, payload: newdata });
+        //     } catch (error) {
+        //       reject(error); // Rechaza la promesa si hay un error
+        //     }
+        //   });
         await fetch(`http://localhost:3001/game/?name=${name}`)
             .then(res=>res.json())
             .then(data=>dispatch({type:GAMESEARCH,payload:data}))
@@ -60,4 +70,8 @@ export const setpagedown = (page) =>{
 
 export const setpage = (gameid,qt) =>{
     return {type:SETPAGE,payload:Math.ceil(Number(gameid)/qt)}
+}
+
+export const setcount = (count)=>{
+    return {type:SETCOUNT,payload:count+1}
 }

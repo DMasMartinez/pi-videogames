@@ -2,21 +2,31 @@
     display: flex;
     align-items: center;
     background-color: #333;
-    padding: 15px;
+    padding: 10px;
 }
 .label {
     color: white;
     margin-left: 8px;
     margin-right: 10px;
 }
+.input-search {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
 
 .boton-gradiente {
+    width: 120px;
+    height: 30px;
+    margin-right: 10px;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 10px 20px 30px 20px;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
-    background: linear-gradient(to bottom, #4CAF50, #457fa0);
+    border-radius: 10px;
+    background: linear-gradient(to bottom, #354636, #377fa9);
     color: #fff;
     cursor: pointer;
     text-align: center;
@@ -27,7 +37,24 @@
 .boton-gradiente:hover {
     background: linear-gradient(to bottom, #45a049, #4CAF50);
 }
+
 .pestana {
+    padding: 10px 20px;
+    cursor: pointer;
+    border: solid;
+    color: blue;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+    flex: 0 0 calc(100% - 10px); /* Establece el ancho de cada elemento de paginación */
+    max-width: calc(15% - 10px); /* Establece el ancho máximo */   
+}
+  
+.pestana.active {
+    border-bottom-color: blue; /* Color de la pestaña activa */
+}
+/* justify-content: space-around; */
+/* .pestana {
     
     display: block;
     background-color: #f2f2f2;
@@ -36,5 +63,4 @@
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     margin-right: 5px;
-  }
-/* justify-content: space-around; */
+} */

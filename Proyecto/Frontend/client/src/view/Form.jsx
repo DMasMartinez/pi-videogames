@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import pacman from '../utils/pacman.jpg'
 import { allgenres } from "../redux/actions"
 import {useNavigate} from 'react-router-dom'
+import "../styles/Form.css"
 
 const {v4:uuidv4} = require('uuid')
 
@@ -136,34 +137,34 @@ const Form =()=>{
         navigate('/home')
     }
     return (
-        <div>
+        <div class="form-container">
             <button onClick={backtohome}>
                 back
             </button>
             <form onSubmit={handleSubmit}>
                 <h2>Form</h2>
-                <label htmlFor="name">name: </label>
-                <input name="name" value={game.name} onChange={handlerchange}/>
+                <label class="form-label" htmlFor="name">name: </label>
+                <input class="form-input" name="name" value={game.name} onChange={handlerchange}/>
                 {error.name!==""&&<p>{error.name}</p>}
 
-                <label htmlFor="description">description: </label>
-                <input name="description" value={game.description} onChange={handlerchange}/>
+                <label class="form-label" htmlFor="description">description: </label>
+                <input class="form-input" name="description" value={game.description} onChange={handlerchange}/>
                 {error.description!==""&&<p>{error.description}</p>}
 
-                <label htmlFor="devices">devices: </label>
-                <input name="devices" value={game.devices} onChange={handlerchange}/>
+                <label class="form-label" htmlFor="devices">devices: </label>
+                <input class="form-input" name="devices" value={game.devices} onChange={handlerchange}/>
                 {error.devices!==""&&<p>{error.devices}</p>}
 
-                <label htmlFor="release">release: </label>
-                <input name="release" value={game.release} onChange={handlerchange}/>
+                <label class="form-label" htmlFor="release">release: </label>
+                <input class="form-input" name="release" value={game.release} onChange={handlerchange}/>
                 {error.release!==""&&<p>{error.release}</p>}
 
-                <label htmlFor="ratings">ratings: </label>
-                <input name="ratings" value={game.ratings} onChange={handlerchange}/>
+                <label class="form-label" htmlFor="ratings">ratings: </label>
+                <input class="form-input" name="ratings" value={game.ratings} onChange={handlerchange}/>
                 {error.ratings!==""&&<p>{error.ratings}</p>}
 
 
-                <label htmlFor="Genres">genres: </label>
+                <label class="form-label" htmlFor="Genres">genres: </label>
                 <select name="Genres" value={game.Genres} onChange={handlerchange}>
                     {allgeneros.map((genero)=>{
                         return <option value={genero.genre}>{genero.genre}</option>
@@ -171,7 +172,7 @@ const Form =()=>{
                 </select>
                 {error.Genres!==""&&<p>{error.Genres}</p>}
             
-                <button type="Submit">submit</button>
+                <button class="form-button" type="Submit">submit</button>
             </form>
         </div>
     )

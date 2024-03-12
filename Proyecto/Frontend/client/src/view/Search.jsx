@@ -27,7 +27,8 @@ const Search =(props)=>{
         dispatch(setpage(gamesearch[0].id,qt))
         navigate('/home')
     }
-    // console.log(pagina)
+
+    console.log(gamesearch)
     return (
         <div>
             <button onClick={backtohome}>
@@ -43,7 +44,7 @@ const Search =(props)=>{
                         release={game.release}
                         devices={game.devices}
                         ratings={game.ratings}
-                        genres={Object.values(game.Genres)?.map((game)=>game.genre)}
+                        genres={game.Genres?Object.values(game.Genres)?.map((game)=>game.genre):null}
                     />
 
                 )

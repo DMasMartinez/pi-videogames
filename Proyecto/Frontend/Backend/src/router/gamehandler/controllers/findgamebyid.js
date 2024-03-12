@@ -41,7 +41,7 @@ const findgamebyid = async(id) =>{
         "description": data.description,
         "genres": ides
     })
-    newgame.addGenre(ides)
+    await newgame.addGenre(ides)
     return newgame.dataValues
 }
 

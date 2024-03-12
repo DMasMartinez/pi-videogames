@@ -5,7 +5,7 @@ const get_genres = require('../../genrehandler/controllers/get_genres')
 const findgamebyname =async(name)=>{
     
 
-    const allgeneros = await get_genres()
+    const allgeneros =await get_genres()
     const idgenre = [1,2]
     const findgame = await Game.findOne({
         where:{name:name},
@@ -45,7 +45,7 @@ const findgamebyname =async(name)=>{
                 "genres":ides
         })
 
-        newaas.addGenre(ides)
+        await newaas.addGenre(ides)
     return newaas
     }
 

@@ -79,11 +79,12 @@ const Searchbar = (props) => {
     useEffect(()=>{
         dispatch(gamesbdd())
     },[])
+
     console.log(juegosbdd)
     return (
         <div class="searchbar">
             <button class="boton-gradiente" onClick={()=>busqueda(name)}>search</button>
-            <input name="nombre" value={name} onChange={handlerchange1}/>
+            <input name="nombre" value={name} onChange={handlerchange1} class="input-search"/>
             <label class="label">Alfabetic</label>
             <select class ="pestana" onChange={handlerchange} name="alfabetic" value={alfaopt}>
                 <option value=""> </option>
