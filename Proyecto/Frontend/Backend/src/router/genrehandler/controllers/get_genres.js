@@ -3,7 +3,7 @@ const { Game, Genre } = require('../../../db')
 const get_genres=async()=>{
     
 
-    const allgenres = await fetch(`https://api.rawg.io/api/genres?key=5ecc473d08d046d7925a099b7b9ed02e`)
+    const allgenres = await fetch(`https://api.rawg.io/api/genres?key=f365d38e7dd34a0fa6f6f14135d94e13`)
     const data = await allgenres.json()
     const showgenres = data.results.map((genre)=>genre.name)
 

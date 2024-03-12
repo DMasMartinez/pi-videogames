@@ -24,7 +24,7 @@ const Search =(props)=>{
     // console.log(generoshow)
     // console.log(newgeneros)
     function backtohome(){
-        dispatch(setpage(gamesearch[0].id,qt))
+        // dispatch(setpage(gamesearch[0].id,qt))
         navigate('/home')
     }
 

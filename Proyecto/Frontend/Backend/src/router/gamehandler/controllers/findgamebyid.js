@@ -12,12 +12,13 @@ const findgamebyid = async(id) =>{
             }
         }
     })
+
     if (gamebyid!=null){
         const genredata = gamebyid.dataValues.genres
         gamebyid.dataValues.genres = genredata
         return gamebyid.dataValues
     }
-    const apigame = await fetch(`https://api.rawg.io/api/games/${id}?key=5ecc473d08d046d7925a099b7b9ed02e`)
+    const apigame = await fetch(`https://api.rawg.io/api/games/${id}?key=f365d38e7dd34a0fa6f6f14135d94e13`)
     const data = await apigame.json()
     const gamegenres = data.genres.map((genre)=>genre.name)
     const ides = allgeneros.filter((genre)=>gamegenres.includes(genre.genre)).map((genre)=>genre.id)

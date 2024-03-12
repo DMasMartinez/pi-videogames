@@ -22,7 +22,7 @@ const findgamebyname =async(name)=>{
         findgame.dataValues.genres = genresgames// creamos la propiedad genres y le anadimos lo que conseguirmos por api
         return findgame.dataValues
     }else{
-        const newgame = await fetch(`https://api.rawg.io/api/games?search=${name}&key=5ecc473d08d046d7925a099b7b9ed02e`)
+        const newgame = await fetch(`https://api.rawg.io/api/games?search=${name}&key=f365d38e7dd34a0fa6f6f14135d94e13`)
         const data = await newgame.json()
         const gamegenre = data.results[0].genres.map(genre=>genre.name)
         const ides = allgeneros.filter((genre)=>gamegenre.includes(genre.genre)).map((genre)=>genre.id)
@@ -45,11 +45,23 @@ const findgamebyname =async(name)=>{
                 "genres":ides
         })
 
-        await newaas.addGenre(ides)
-    return newaas
+        newaas.addGenre(ides)
+        const objectoshow = await Game.findByPk(newaas.id,{
+            include:{
+                model:Genre,
+                attributes:["genre"],
+                through:{
+                    attributes:[]
+                }
+            }
+        })
+        return objectoshow.dataValues
+        // if (objectoshow!=null){
+        //     const newgeneros = objectoshow.dataValues.genres
+        //     objectoshow.dataValues.genres = newgeneros
+        //     return objectoshow.dataValues
+        // }
     }
-
-    
 }
 
 module.exports = findgamebyname;

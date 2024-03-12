@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { allgames } from "../redux/actions"
 import Pagination from "./Pagination"
 import { useState } from "react"
-import { setpagedown,setpageup } from "../redux/actions"
+import { setpagedown,setpageup,setcount } from "../redux/actions"
 
 const Home =(props)=>{
     const [generobdd,setGenerobdd] = useState([])
@@ -14,16 +14,21 @@ const Home =(props)=>{
     // const [page,setPage] = useState(1)
     const juegos = useSelector(state=>state.juegos)
     const pagina = useSelector(state=>state.page)
+    const count = useSelector(state=>state.count)
     // const initidx = props.qt*props.page-props.qt
     // const finalidx = props.qt*props.page
     // const initidx = qt*page-qt
     // const finalidx = qt*page
     const initidx = qt*pagina-qt
     const finalidx = qt*pagina
+    const currentgames = juegos
     
     
     useEffect(()=>{
-        dispatch(allgames())
+        if (count===0){
+            dispatch(allgames())
+        }
+        dispatch(setcount(count))
     },[])
 
     // useEffect(async()=>{

@@ -19,8 +19,8 @@ database.sync({force:true}).then(async()=>{
         // console.log(result)
         // const result = await findgamebyid("4200")
         // console.log(result)
-        // const result = await findgamebyname("Alien Space Retro")
-        // console.log(result)
+        const result = await findgamebyname("Dota 2")
+        console.log(result)
         // const result = await creategame({
         //     "id":"30",
         //     "name":"nawsss",

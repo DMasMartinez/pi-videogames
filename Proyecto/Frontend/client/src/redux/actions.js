@@ -2,7 +2,7 @@ import {ALLGAMES,GAMESEARCH,ALLGENRES,GAMESBDD, SETALLGAMES, SETPAGEUP, SETPAGED
 
 export const allgames =()=>{
     return async function (dispatch){
-        const arrayindex = Array.from({ length: 100 }, (_, index) => index+1)
+        const arrayindex = Array.from({ length: 5 }, (_, index) => index+1)
         const games = arrayindex.map(async(i)=>{
             const res = await fetch(`http://localhost:3001/game/${i}`)
             const data = await res.json()
@@ -50,7 +50,7 @@ export const gamesbdd = () =>{
     return async function(dispatch){
         const response = await fetch('http://localhost:3001/game/');
         const data = await response.json();
-        const newdata = data.filter((data)=>data.id.length>5)
+        const newdata = data.filter((data)=>data.id.length>8)
 
         return dispatch({ type: GAMESBDD, payload: newdata });
     }
