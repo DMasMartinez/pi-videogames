@@ -80,7 +80,7 @@ const Searchbar = (props) => {
         dispatch(gamesbdd())
     },[])
 
-    console.log(juegosbdd)
+    console.log(generos)
     return (
         <div class="searchbar">
             <button class="boton-gradiente" onClick={()=>busqueda(name)}>search</button>
@@ -100,7 +100,7 @@ const Searchbar = (props) => {
             <label class="label">Genre</label>
             <select class="pestana" onChange={handlerchange} name="genre" value={genero}>
                 <option value=""> </option>
-                {generos.map((genre)=><option value={genre.genre}>{genre.genre}</option>)}
+                {generos?generos.map((genre)=><option value={genre.genre}>{genre.genre}</option>):null}
             </select>
 
             <select class="pestana" name="origen" onChange={handlerchange} value={props.origen}>

@@ -16,7 +16,8 @@ const rootReducer = (state=initial_state,{type,payload})=>{
         case ALLGAMES:
             return {...state,juegos:[...payload],juegoscache:[...payload]}
         case GAMESEARCH:
-            return {...state,juegosearch:[...state.juegosearch,payload]}
+            return {...state,juegosearch:payload}
+            // return {...state,juegosearch:[...state.juegosearch,payload]}
         case ALLGENRES:
             return {...state,generos:payload}
         case GAMESBDD:

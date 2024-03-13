@@ -1,0 +1,21 @@
+
+
+.contenedor-search {
+    display: flex;
+    list-style: none;
+    padding: 20px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.elemento-search {
+    flex-basis: calc(50.33% - 10px); /* Ancho de aproximadamente un tercio menos el espacio entre los elementos */
+    margin-bottom: 20px; /* Espacio entre filas */
+    box-sizing: border-box; /* Incluir bordes en el cálculo del ancho */
+}
+
+/* 
+flex: 0 0 calc(50% - 10px); 
+    margin: 5px; */
+
+

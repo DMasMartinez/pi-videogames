@@ -4,10 +4,12 @@ import Gamecard from "../components/Gamecard"
 import { useSelector,useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setpage } from "../redux/actions";
+import "../styles/Search.css"
 const Search =(props)=>{
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const gamesearch = useSelector(state=>state.juegosearch)
+    const gamesbdd = useSelector(state=>state.juegosbdd)
     const pagina = useSelector(state=>state.page)
     const qt = useSelector(state=>state.qt)
     // const [generos,setGeneros] = useState([])
@@ -30,23 +32,24 @@ const Search =(props)=>{
 
     console.log(gamesearch)
     return (
-        <div>
+        <div class="contenedor-search">
             <button onClick={backtohome}>
                 back
             </button>
             {gamesearch.map((game)=>{
                 return (
-                    <Gamecard
-                        id={game.id}
-                        name={game.name}
-                        description={game.description}
-                        image={game.image}
-                        release={game.release}
-                        devices={game.devices}
-                        ratings={game.ratings}
-                        genres={game.Genres?Object.values(game.Genres)?.map((game)=>game.genre):null}
-                    />
-
+                    <div class="elemento-search">
+                        <Gamecard
+                            id={game.id}
+                            name={game.name}
+                            description={game.description}
+                            image={game.image}
+                            release={game.release}
+                            devices={game.devices}
+                            ratings={game.ratings}
+                            genres={game.Genres?Object.values(game.Genres)?.map((game)=>game.genre):null}
+                        />
+                    </div>
                 )
             })}
         </div>
