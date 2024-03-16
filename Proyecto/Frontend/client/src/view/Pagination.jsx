@@ -16,10 +16,10 @@ const Pagination = (props) => {
     // }
     const dispatch = useDispatch()
     const pagina = useSelector(state=>state.page)
-    const juegos = useSelector(state=>state.juegos)
+    // const juegos = useSelector(state=>state.juegos)
     function nextpage(){
 
-        if (pagina===Math.ceil(juegos.length/props.qt)){
+        if (pagina>=Math.ceil(props.juegos.length/props.qt)){
             // setPage(page-1)
             dispatch(setpagedown(pagina))
         }
@@ -38,8 +38,8 @@ const Pagination = (props) => {
     console.log(pagina)
     return (
         <div class="framepagination">
-            <button class="botonpagination" onClick={()=>previouspage()}>previous</button>
-            <button class="botonpagination" onClick={()=>nextpage()}>next</button>
+            <button className="botonpagination" onClick={()=>previouspage()}>previous</button>
+            <button className="botonpagination" onClick={()=>nextpage()}>next</button>
         </div>
     )
 }

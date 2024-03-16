@@ -4,7 +4,7 @@ import { allgames, gamesearch } from "../redux/actions"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { allgenres } from "../redux/actions"
-import { setallgames,gamesbdd } from "../redux/actions"
+import { setallgames,gamesbdd,setpagetoone } from "../redux/actions"
 import '../styles/Searchbar.css'
 
 const Searchbar = (props) => {
@@ -13,7 +13,7 @@ const Searchbar = (props) => {
     const generos = useSelector(state=>state.generos)
     const juegos = useSelector(state=>state.juegos)
     const juegosbdd = useSelector(state=>state.juegosbdd)
-    const [name,setName] = useState("")
+    // const [name,setName] = useState("")
     const [alfaopt,setAlfaopt] = useState("")
     const [ratingopt,setRatingopt] = useState("")
     const [genero,setGenero] = useState("")
@@ -26,7 +26,7 @@ const Searchbar = (props) => {
 
     function handlerchange1(event){
         if (event.target.name==="nombre"){
-            setName(event.target.value)
+            props.setName(event.target.value)
         }
     }
     function handlerchange(event){
@@ -54,6 +54,7 @@ const Searchbar = (props) => {
             const generoption = event.target.value
             setGenero(generoption)
             props.orderbygenre(juegos,generoption)
+            dispatch(setpagetoone())
             
         }
         else if (event.target.name==="origen"){
@@ -83,8 +84,8 @@ const Searchbar = (props) => {
     console.log(generos)
     return (
         <div class="searchbar">
-            <button class="boton-gradiente" onClick={()=>busqueda(name)}>search</button>
-            <input name="nombre" value={name} onChange={handlerchange1} class="input-search"/>
+            <button class="boton-gradiente" onClick={()=>busqueda(props.name)}>search</button>
+            <input name="nombre" value={props.name} onChange={handlerchange1} class="input-search"/>
             <label class="label">Alfabetic</label>
             <select class ="pestana" onChange={handlerchange} name="alfabetic" value={alfaopt}>
                 <option value=""> </option>

@@ -2,12 +2,14 @@ import Gamecard from "../components/Gamecard"
 import { useEffect } from "react"
 import '../styles/Showgames.css'
 import { useSelector, useDispatch } from "react-redux"
-import { allgames } from "../redux/actions"
+import { allgames, setallgames } from "../redux/actions"
 import Pagination from "./Pagination"
 import { useState } from "react"
 import { setpagedown,setpageup,setcount } from "../redux/actions"
-
+import loadingif from "../utils/loading.webp"
+import { useLocation } from "react-router-dom"
 const Home =(props)=>{
+    const location = useLocation()
     const [generobdd,setGenerobdd] = useState([])
     const dispatch = useDispatch()
     const [qt,setQt] = useState(4)
@@ -15,39 +17,46 @@ const Home =(props)=>{
     const juegos = useSelector(state=>state.juegos)
     const pagina = useSelector(state=>state.page)
     const count = useSelector(state=>state.count)
+    const gamesbdd = useSelector(state=>state.juegosbdd)
+    const juegostoshow = juegos
     // const initidx = props.qt*props.page-props.qt
     // const finalidx = props.qt*props.page
     // const initidx = qt*page-qt
     // const finalidx = qt*page
     const initidx = qt*pagina-qt
     const finalidx = qt*pagina
-    const currentgames = juegos
+    let currentgames = juegos
+    const [aux,setAux]=useState([])
     
-    
+    // function listatoconcat(){
+    //     if (gamesbdd.length>0){
+    //         setAux([...currentgames,...gamesbdd])
+    //         dispatch(setallgames(aux))
+    //     }
+    // }
+
     useEffect(()=>{
-        if (count===0){
-            dispatch(allgames())
-        }
-        dispatch(setcount(count))
+        dispatch(allgames())
     },[])
 
-    // useEffect(async()=>{
-    //     if (juegos.length<10){
-    //         await fetch(`http:localhost:3001/game/?name=?${juegos.name}`)
-    //             .then(res=>res.json())
-    //             .then(data=>setGenerobdd(data.Genres))
-    //     }
-    // },[])
+
+
     // useEffect(()=>{
-    //     props.showgames()
+    //     if (count===0){
+    //         dispatch(allgames())
+    //         listatoconcat()
+    //     }
+    //     // dispatch(setcount(count))
     // },[])
+
+
     console.log(juegos)
-    return (
-        <div class="contenedor">
+    return juegos.length>0?(
+        <div className="contenedor">
             
             {juegos.slice(initidx,finalidx).map((game)=>{
                 return (
-                    <div class="elemento">
+                    <div className="elemento">
                         <Gamecard
                             id={game.id}
                             name={game.name}
@@ -56,7 +65,7 @@ const Home =(props)=>{
                             release={game.release}
                             devices={game.devices}
                             ratings={game.ratings}
-                            genres={game.Genres?game.Genres.map((game)=>game.genre+' '):generobdd.map((game)=>game.genre+' ')}
+                            genres={location.pathname==='/home'?game.Genres:game.Genres.map((game)=>game.genre+' ')}
                         />
                     </div>
 
@@ -68,9 +77,11 @@ const Home =(props)=>{
                 <button onClick={()=>nextpage()}>next</button>
             </div> */}
         </div>
-    )
+    ):<div className="loadinghome"><img src={loadingif}/></div>
 }
 
 export default Home
 
 // genres={game.Genres.map((game)=>game.genre+' ')}
+
+// genres={game.Genres?game.Genres.map((game)=>game.genre+' '):generobdd.map((game)=>game.genre+' ')}

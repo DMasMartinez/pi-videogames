@@ -9,8 +9,8 @@ const {v4:uuidv4} = require('uuid')
 
 
 const validation=(error,setError,game)=>{
-    if (game.name===""){
-        setError({...error,name:"the space is blank"})
+    if (typeof game.name!="string"){
+        setError({...error,name:"the data is wrong"})
     }else{
         if (typeof game.name!=="string" && game.name.length<6){
             setError({...error,name:"you filled with the wrong type and length"})
@@ -41,6 +41,7 @@ const Form =()=>{
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const allgeneros = useSelector(state=>state.generos)
+    const [putgenre,setPutgenre]=useState([])
     // const [generos,setGeneros] = useState([])
     const [game,setGame]= useState({
         id:`${uuidv4()}`,
@@ -88,7 +89,8 @@ const Form =()=>{
         }
         if (event.target.name==="Genres"){
             const newgenre = event.target.value
-            setGame({...game,Genres:newgenre})
+            setPutgenre([...putgenre,newgenre])
+            setGame({...game,Genres:[...putgenre,newgenre]})
             validation(error,setError,{...game,Genres:newgenre})
         }
         // if (event.target.name==="Genres"){
@@ -145,7 +147,7 @@ const Form =()=>{
                 <h2>Form</h2>
                 <label class="form-label" htmlFor="name">name: </label>
                 <input class="form-input" name="name" value={game.name} onChange={handlerchange}/>
-                {error.name!==""&&<p>{error.name}</p>}
+                <div className="errores">{error.name!==""&&<p>{error.name}</p>}</div>
 
                 <label class="form-label" htmlFor="description">description: </label>
                 <input class="form-input" name="description" value={game.description} onChange={handlerchange}/>
@@ -165,11 +167,15 @@ const Form =()=>{
 
 
                 <label class="form-label" htmlFor="Genres">genres: </label>
-                <select name="Genres" value={game.Genres} onChange={handlerchange}>
+                <select name="Genres" value={game.Genres[game.Genres.length-1]} onChange={handlerchange}>
                     {allgeneros.map((genero)=>{
                         return <option value={genero.genre}>{genero.genre}</option>
                     })}
+                   
                 </select>
+                {putgenre.map((genero)=>{
+                        return <span value={genero}>{genero}</span>
+                    })}
                 {error.Genres!==""&&<p>{error.Genres}</p>}
             
                 <button class="form-button" type="Submit">submit</button>

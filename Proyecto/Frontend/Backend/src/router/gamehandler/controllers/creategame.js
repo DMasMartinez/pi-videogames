@@ -3,7 +3,8 @@ const get_genres = require('../../genrehandler/controllers/get_genres')
 const creategame = async(data) =>{
     const {id,name,Genres,description,release,image,devices,ratings} = data
     const allgeneros = await get_genres()
-    const putgenres = allgeneros.filter((genre)=>Genres===genre.genre)[0].id
+    const putgenres = allgeneros.filter((genre)=>Genres.includes(genre.genre)).map((game)=>game.id)
+    // const putgenres = allgeneros.filter((genre)=>Genres===genre.genre)[0].id
     const newgame = {
         "id":id,
         "name":name,

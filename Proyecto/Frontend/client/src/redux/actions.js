@@ -1,17 +1,47 @@
-import {ALLGAMES,GAMESEARCH,ALLGENRES,GAMESBDD, SETALLGAMES, SETPAGEUP, SETPAGEDOWN,SETPAGE, SETCOUNT} from './action-type'
+import {ALLGAMES,GAMESEARCH,ALLGENRES,GAMESBDD, SETALLGAMES, SETPAGEUP, SETPAGEDOWN,SETPAGE, SETCOUNT, SETPAGETOONE} from './action-type'
 
 export const allgames =()=>{
+    // return async function (dispatch){
+    //     const arrayindex = Array.from({ length: 20 }, (_, index) => index+1)
+    //     const games = arrayindex.map(async(i)=>{
+    //         const res = await fetch(`http://localhost:3001/game/${i}`)
+    //         const data = await res.json()
+    //         return data
+    //     })
+    //     const newgames = games.filter((game)=>!game.error)
+    //     const gamestoshow = await Promise.all(newgames)
+    //     // setGamespag([...gamestoshow.filter((objeto)=>!objeto.error)])
+    //     return dispatch({type:ALLGAMES,payload:[...gamestoshow.filter((objeto)=>!objeto.error)]})
+    // }
     return async function (dispatch){
-        const arrayindex = Array.from({ length: 5 }, (_, index) => index+1)
-        const games = arrayindex.map(async(i)=>{
-            const res = await fetch(`http://localhost:3001/game/${i}`)
-            const data = await res.json()
-            return data
+        let allgames=[]
+        let URL = `https://api.rawg.io/api/games?key=f365d38e7dd34a0fa6f6f14135d94e13`
+        const arrayindex = Array.from({ length: 8 }, (_, index) => index+2)
+        const todojuego = arrayindex.map(async(valor)=>{
+                const games = await fetch(`https://api.rawg.io/api/games?key=f365d38e7dd34a0fa6f6f14135d94e13&page=${valor}`)
+                const data = games.json()
+                return data
+    
         })
-        const newgames = games.filter((game)=>!game.error)
-        const gamestoshow = await Promise.all(newgames)
-        // setGamespag([...gamestoshow.filter((objeto)=>!objeto.error)])
-        return dispatch({type:ALLGAMES,payload:[...gamestoshow.filter((objeto)=>!objeto.error)]})
+        const gamestoshow = await Promise.all(todojuego)
+        const gamestoshow1 = gamestoshow.map((listgames)=>(listgames.results))
+        const games = gamestoshow1.flat()
+        const objectgames = games.map((data)=>{
+            const newobject={
+                "id": data.id.toString(),
+                "name": data.name,
+                "devices": data.plataforms?.map((plat) => plat.platform.name),
+                "release": data.released,
+                "image": data.background_image,
+                "ratings": data.rating,
+                "description": data.description,
+                "Genres": data.genres.map((genre)=>genre.name)
+            }
+            return newobject
+        })
+        
+        return dispatch({type:ALLGAMES,payload:[...objectgames]})
+        
     }
 }
 
@@ -74,4 +104,8 @@ export const setpage = (gameid,qt) =>{
 
 export const setcount = (count)=>{
     return {type:SETCOUNT,payload:count+1}
+}
+
+export const setpagetoone = ()=>{
+    return {type:SETPAGETOONE,payload:1}
 }

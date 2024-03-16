@@ -4,11 +4,11 @@
     border-width: 10px;
     background-color: rgba(255,255,0, 0.7);
     background-size: 400px 500px;
-    height: 500px;
+    height: 550px;
     width: 400px;
-    margin: 0 5px;
-    flex: 0 0 calc(60% - 10px); /* Establece el ancho de cada elemento de paginación */
-    max-width: calc(60% - 10px); /* Establece el ancho máximo */   
+    margin: 0 70px;
+    flex: 0 0 calc(60% - 10px); 
+    max-width: calc(60% - 10px); 
 }
 
 .image img{
@@ -16,8 +16,8 @@
     margin: 50px 50px 0px 5px;
     height: 300px;
     width: 400px;
-    flex: 0 0 calc(100% - 10px); /* Establece el ancho de cada elemento de paginación */
-    max-width: calc(100% - 10px); /* Establece el ancho máximo */   
+    flex: 0 0 calc(100% - 10px); 
+    max-width: calc(100% - 10px);
 }
 
 .cardtext{
@@ -37,7 +37,3 @@ a{
     border-radius: 3px;
 }
 
-/* background-color: rgba(255,0,0, 0.7); */
-/* font-size: xx-large;
-text-decoration: dotted;
-display: block; */

@@ -11,12 +11,13 @@ import Searchbar from './components/Searchbar';
 import Detail from './view/Detail';
 import Navbar from './view/Navbar';
 import { useSelector, useDispatch } from 'react-redux';
-import { setallgames } from './redux/actions';
+import { setallgames,setpagetoone } from './redux/actions';
 
 function App() {
   const [games,setGames] = useState([])
   const [gamespag,setGamespag] = useState([])
   const [origen,setOrigen]=useState("API")
+  const [name,setName] = useState("")
   const totalgames = 10
   const location = useLocation()
   const navigate =useNavigate()
@@ -88,25 +89,41 @@ function App() {
     let copylist = [...currentlylist]
     const genrelist = currentlylist.map((game)=>game.Genres)
     for (var i=0;i<genrelist.length;i++){
-      const currentlist = genrelist[i].map((genre)=>genre.genre)
-      if (genrelist[i].map((genre)=>genre.genre).includes(tipo)){
-        lista.push(copylist[i])
+      // const currentlist = genrelist[i].map((genre)=>genre.genre)
+      if (genrelist[i].includes(tipo)){
+          lista.push(copylist[i])
       }
+      // if (genrelist[i].includes(tipo)){
+      //   lista.push(copylist[i])
+      // }
     }
     // setGamespag(lista)
-    dispatch(setallgames(lista))
+    dispatch(setallgames((lista)))
   }
+  // function orderbygenre(currentlylist,tipo){
+  //   const lista = []
+  //   let copylist = [...currentlylist]
+  //   const genrelist = currentlylist.map((game)=>game.Genres)
+  //   for (var i=0;i<genrelist.length;i++){
+  //     const currentlist = genrelist[i].map((genre)=>genre.genre)
+  //     if (genrelist[i].map((genre)=>genre.genre).includes(tipo)){
+  //       lista.push(copylist[i])
+  //     }
+  //   }
+  //   // setGamespag(lista)
+  //   dispatch(setallgames(lista))
+  // }
   
   return (
     <div>
       {location.pathname!=='/'&&<Navbar/>}
-      {location.pathname!=='/'&&location.pathname!=='/form'&&location.pathname!=='/search'&&<Searchbar origen = {origen} setOrigen={setOrigen} search={search} orderalfabetic={orderalfabetic} gamespag={gamespag} orderbyratings={orderbyratings} orderbygenre={orderbygenre}/>}
+      {location.pathname!=='/'&&location.pathname!=='/form'&&location.pathname!=='/search'&&<Searchbar name={name} setName={setName} origen = {origen} setOrigen={setOrigen} search={search} orderalfabetic={orderalfabetic} gamespag={gamespag} orderbyratings={orderbyratings} orderbygenre={orderbygenre}/>}
       
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/home' element={<Home gamespag={gamespag} showgames={showgames} totalgames={totalgames}/>}/>
         <Route path='/form' element={<Form/>}/>
-        <Route path='/search' element={<Search games={games}/>}/>
+        <Route path='/search' element={<Search name={name} setName={setName} games={games}/>}/>
         <Route path='/detail/:id' element={<Detail/>}/>
       </Routes>
     </div>
