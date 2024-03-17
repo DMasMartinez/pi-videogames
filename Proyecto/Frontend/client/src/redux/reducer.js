@@ -1,4 +1,4 @@
-import {ALLGAMES,GAMESEARCH,ALLGENRES,GAMESBDD,SETALLGAMES,SETPAGEUP, SETPAGEDOWN,SETPAGE,SETCOUNT,SETPAGETOONE} from './action-type'
+import {ALLGAMES,GAMESEARCH,ALLGENRES,GAMESBDD,SETALLGAMES,SETPAGEUP, SETPAGEDOWN,SETPAGE,SETCOUNT,SETPAGETOONE,SETALLSEARCHGAMES} from './action-type'
 const initial_state = {
     juegos : [],
     juegosbdd : [],
@@ -24,6 +24,8 @@ const rootReducer = (state=initial_state,{type,payload})=>{
             return {...state,juegosbdd:payload}
         case SETALLGAMES:
             return {...state,juegos:payload}
+        case SETALLSEARCHGAMES:
+            return {...state,juegosearch:payload}
         case SETPAGEUP:
             return {...state,page:payload}
         case SETPAGEDOWN:

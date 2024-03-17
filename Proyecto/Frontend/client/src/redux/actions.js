@@ -1,4 +1,4 @@
-import {ALLGAMES,GAMESEARCH,ALLGENRES,GAMESBDD, SETALLGAMES, SETPAGEUP, SETPAGEDOWN,SETPAGE, SETCOUNT, SETPAGETOONE} from './action-type'
+import {ALLGAMES,GAMESEARCH,ALLGENRES,GAMESBDD, SETALLGAMES, SETPAGEUP, SETPAGEDOWN,SETPAGE, SETCOUNT, SETPAGETOONE, SETALLSEARCHGAMES} from './action-type'
 
 export const allgames =()=>{
     // return async function (dispatch){
@@ -89,6 +89,10 @@ export const gamesbdd = () =>{
 
 export const setallgames = (listgames) =>{
     return {type:SETALLGAMES,payload:listgames}
+}
+
+export const setallsearchgames = (gamelist) =>{
+    return {type:SETALLSEARCHGAMES,payload:gamelist}
 }
 
 export const setpageup = (page) =>{

@@ -46,7 +46,7 @@ function App() {
     // setGamespag([...gamestoshow])
     
   }
-  function orderalfabetic(currentlylist,tipo){
+  function orderalfabetic(currentlylist,tipo,funcion){
     const newlist = []
     const alfabetic = "abcdefghijklmnopqrstuvwxyz"
     const opositealfabetic = "zyxwvutsrqponmlkjihgfedcba"
@@ -70,9 +70,9 @@ function App() {
       }
     }
     // setGamespag(newlist)
-    dispatch(setallgames(newlist))
+    dispatch(funcion(newlist))
   }
-  function orderbyratings(currentlylist,tipo){
+  function orderbyratings(currentlylist,tipo,funcion){
     const copylist = [...currentlylist]
     let listarating = []
 
@@ -82,9 +82,9 @@ function App() {
       listarating = copylist.sort((a,b)=>parseFloat(b.ratings)-parseFloat(a.ratings))
     }
     // setGamespag(listarating)
-    dispatch(setallgames(listarating))
+    dispatch(funcion(listarating))
   }
-  function orderbygenre(currentlylist,tipo){
+  function orderbygenre(currentlylist,tipo,funcion){
     const lista = []
     let copylist = [...currentlylist]
     const genrelist = currentlylist.map((game)=>game.Genres)
@@ -98,26 +98,35 @@ function App() {
       // }
     }
     // setGamespag(lista)
-    dispatch(setallgames((lista)))
+    dispatch(funcion((lista)))
   }
-  // function orderbygenre(currentlylist,tipo){
-  //   const lista = []
-  //   let copylist = [...currentlylist]
-  //   const genrelist = currentlylist.map((game)=>game.Genres)
-  //   for (var i=0;i<genrelist.length;i++){
-  //     const currentlist = genrelist[i].map((genre)=>genre.genre)
-  //     if (genrelist[i].map((genre)=>genre.genre).includes(tipo)){
-  //       lista.push(copylist[i])
-  //     }
-  //   }
-  //   // setGamespag(lista)
-  //   dispatch(setallgames(lista))
-  // }
+  function orderbygenre1(currentlylist,tipo,funcion){
+    const lista = []
+    let copylist = [...currentlylist]
+    const genrelist = currentlylist.map((game)=>game.Genres)
+    for (var i=0;i<genrelist.length;i++){
+      // const currentlist = genrelist[i].map((genre)=>genre.genre)
+      if (genrelist[i].map((genre)=>genre.genre).includes(tipo)){
+          lista.push(copylist[i])
+      }
+      // if (genrelist[i].includes(tipo)){
+      //   lista.push(copylist[i])
+      // }
+    }
+    // setGamespag(lista)
+    dispatch(funcion((lista)))
+  }
+  function cleardata(funcion){
+    dispatch(funcion())
+  }
+  function cleardatasearch(funcion){
+    dispatch(funcion(name))
+  }
   
   return (
     <div>
       {location.pathname!=='/'&&<Navbar/>}
-      {location.pathname!=='/'&&location.pathname!=='/form'&&location.pathname!=='/search'&&<Searchbar name={name} setName={setName} origen = {origen} setOrigen={setOrigen} search={search} orderalfabetic={orderalfabetic} gamespag={gamespag} orderbyratings={orderbyratings} orderbygenre={orderbygenre}/>}
+      {location.pathname!=='/'&&location.pathname!=='/Form'&&<Searchbar name={name} setName={setName} origen = {origen} setOrigen={setOrigen} search={search} orderalfabetic={orderalfabetic} gamespag={gamespag} orderbyratings={orderbyratings} orderbygenre={orderbygenre} orderbygenre1={orderbygenre1} cleardata={cleardata} cleardatasearch={cleardatasearch}/>}
       
       <Routes>
         <Route path='/' element={<Landing/>}/>

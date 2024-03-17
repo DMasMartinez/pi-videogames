@@ -4,15 +4,18 @@ import { allgames, gamesearch } from "../redux/actions"
 import { useNavigate } from "react-router-dom"
 import { useSelector } from "react-redux"
 import { allgenres } from "../redux/actions"
-import { setallgames,gamesbdd,setpagetoone } from "../redux/actions"
+import { setallgames,setallsearchgames,gamesbdd,setpagetoone } from "../redux/actions"
+import { useLocation } from "react-router-dom"
 import '../styles/Searchbar.css'
 
 const Searchbar = (props) => {
+    const location = useLocation()
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const generos = useSelector(state=>state.generos)
     const juegos = useSelector(state=>state.juegos)
     const juegosbdd = useSelector(state=>state.juegosbdd)
+    const juegosearch = useSelector(state=>state.juegosearch)
     // const [name,setName] = useState("")
     const [alfaopt,setAlfaopt] = useState("")
     const [ratingopt,setRatingopt] = useState("")
@@ -34,27 +37,50 @@ const Searchbar = (props) => {
         if (event.target.name==="alfabetic"){
             const alfaoption = event.target.value
             setAlfaopt(alfaoption)
-            if (alfaoption==="A-Z"){
-                props.orderalfabetic(juegos,alfaoption)
-            }else if (alfaoption==="Z-A"){
-                props.orderalfabetic(juegos,alfaoption)
+            if (location.pathname==='/home'){
+                if (alfaoption==="A-Z"){
+                    props.orderalfabetic(juegos,alfaoption,setallgames)
+                }else if (alfaoption==="Z-A"){
+                    props.orderalfabetic(juegos,alfaoption,setallgames)
+                }
+            }else if(location.pathname==='/search'){
+                if (alfaoption==="A-Z"){
+                    props.orderalfabetic(juegosearch,alfaoption,setallsearchgames)
+                }else if (alfaoption==="Z-A"){
+                    props.orderalfabetic(juegosearch,alfaoption,setallsearchgames)
+                }
             }
+            
         }
         else if (event.target.name==="rating"){
             const ratingoption = event.target.value
             setRatingopt(ratingoption)
-            if (ratingoption==="ascendente"){
-                props.orderbyratings(juegos,ratingoption)
-            }else if (ratingoption==="descendente"){
-                props.orderbyratings(juegos,ratingoption)
+            if (location.pathname==='/home'){
+                if (ratingoption==="ascendente"){
+                    props.orderbyratings(juegos,ratingoption,setallgames)
+                }else if (ratingoption==="descendente"){
+                    props.orderbyratings(juegos,ratingoption,setallgames)
+                }
             }
-                
+            else if(location.pathname==='/search'){
+                if (ratingoption==="ascendente"){
+                    props.orderbyratings(juegosearch,ratingoption,setallsearchgames)
+                }else if (ratingoption==="descendente"){
+                    props.orderbyratings(juegosearch,ratingoption,setallsearchgames)
+                }
+            }   
         }
         else if (event.target.name==="genre"){
             const generoption = event.target.value
             setGenero(generoption)
-            props.orderbygenre(juegos,generoption)
-            dispatch(setpagetoone())
+            if (location.pathname==='/home'){
+                props.orderbygenre(juegos,generoption,setallgames)
+                dispatch(setpagetoone())
+            }else if (location.pathname==='/search'){
+                props.orderbygenre1(juegosearch,generoption,setallsearchgames)
+                
+            }
+            
             
         }
         else if (event.target.name==="origen"){
@@ -109,6 +135,7 @@ const Searchbar = (props) => {
                 <option value="API">API</option>
                 <option value="BDD">BDD</option>
             </select>
+            {location.pathname==='/home'?<button className="boton-gradiente" onClick={()=>props.cleardata(allgames)}>default</button>:<button className="boton-gradiente" onClick={()=>props.cleardatasearch(gamesearch)}>default</button>}
             
 
         </div>

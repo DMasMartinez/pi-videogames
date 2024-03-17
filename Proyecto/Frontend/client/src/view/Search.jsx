@@ -50,9 +50,9 @@ const Search =(props)=>{
     console.log(gamesearchtoshow)
     return (
         <div className="contenedor-search">
-            <button onClick={backtohome} className="button-search">
+            {/* <button onClick={backtohome} className="button-search">
                 back
-            </button>
+            </button> */}
             {gamesearchtoshow.length>0?gamesearchtoshow.map((game)=>{
                 return (
                     <div className="elemento-search">
