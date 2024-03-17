@@ -3,15 +3,14 @@
 .contenedor-search {
     display: flex;
     list-style: none;
-    padding: 20px;
-    justify-content: space-between;
+    padding: 0;
+    justify-content: left;
     flex-wrap: wrap;
 }
 
 .elemento-search {
-    flex-basis: calc(50.33% - 10px); /* Ancho de aproximadamente un tercio menos el espacio entre los elementos */
-    margin-bottom: 20px; /* Espacio entre filas */
-    box-sizing: border-box; /* Incluir bordes en el cálculo del ancho */
+    flex: 0 0 calc(18% - 5px); 
+    margin: 5px;
 }
 
 .notfound {

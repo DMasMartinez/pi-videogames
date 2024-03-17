@@ -12,7 +12,7 @@ const Home =(props)=>{
     const location = useLocation()
     const [generobdd,setGenerobdd] = useState([])
     const dispatch = useDispatch()
-    const [qt,setQt] = useState(4)
+    const [qt,setQt] = useState(15)
     // const [page,setPage] = useState(1)
     const juegos = useSelector(state=>state.juegos)
     const pagina = useSelector(state=>state.page)
@@ -71,12 +71,15 @@ const Home =(props)=>{
 
                 )
             })}
-            <Pagination qt={qt} juegos={juegos}/>
+            <div className="botonpaginado">
+                <Pagination qt={qt} juegos={juegos}/>
+            </div>
             {/* <div>
                 <button onClick={()=>previouspage()}>previous</button>
                 <button onClick={()=>nextpage()}>next</button>
             </div> */}
         </div>
+
     ):<div className="loadinghome"><img src={loadingif}/></div>
 }
 

@@ -3,6 +3,51 @@
     border-radius: 10px;
     border-width: 10px;
     background-color: rgba(255,255,0, 0.7);
+    background-size: 300px 400px;
+    height: 410px;
+    width: 300px;
+    margin: 0 10px;
+    flex: 0 0 calc(60% - 10px); 
+    max-width: calc(60% - 10px); 
+    overflow: hidden;
+}
+
+.image img{
+    border-radius: 10px;
+    margin: 50px 50px 0px 5px;
+    height: 150px;
+    width: 200px;
+    flex: 0 0 calc(100% - 10px); 
+    max-width: calc(100% - 10px);
+}
+
+.cardtext{
+    color: white;
+    border: black;
+    background-color: rgba(255, 100, 100, 0.6);
+}
+.cardtext .nameshow{
+    height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+a{
+    display: block;
+    font-size: xx-large;
+    text-align: center;
+    color: #333;
+    text-decoration: dashed;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+
+/* .framegamecard{
+    border: red outset;
+    border-radius: 10px;
+    border-width: 10px;
+    background-color: rgba(255,255,0, 0.7);
     background-size: 400px 500px;
     height: 550px;
     width: 400px;
@@ -35,5 +80,4 @@ a{
     padding: 5px 10px;
     border: 1px solid #ccc;
     border-radius: 3px;
-}
-
+} */

@@ -10,13 +10,15 @@ const Gamecard = (props) => {
                 <img src={props.image} alt={props.name}/>
             </div>
             <div class="cardtext">
-                {location.pathname!=='/home'&&location.pathname!=='/search'?<h2>{props.name}</h2>:<a href={`/detail/${props.id}`}>{props.name}</a>}
+                <div className="nameshow">
+                    {location.pathname!=='/home'&&location.pathname!=='/search'?<h2>{props.name}</h2>:<a href={`/detail/${props.id}`}>{props.name}</a>}
+                </div>
                 {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.id}</h2>}
                 {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.description}</h2>} 
                 {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.devices}</h2>}
                 {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.release}</h2>}
                 {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.ratings}</h2>}
-                <h2>{props.genres}</h2>
+                {location.pathname==='/home'?<h2>{props.genres.map((genres)=>genres+' ')}</h2>:<h2>{props.genres}</h2>}
             </div>
         </div>
     )

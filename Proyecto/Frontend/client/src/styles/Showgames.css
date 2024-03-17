@@ -8,23 +8,37 @@
   display: flex;
   list-style: none;
   padding: 0;
-  justify-content: center;
+  justify-content: left;
   flex-wrap: wrap;
+  margin-top: 30px;
+  margin-right: 5px;
+  gap: 10px;
+
 }
 .elemento {
-    flex: 0 0 calc(50% - 10px); 
+    flex: 0 0 calc(18% - 5px); 
     margin: 5px;
 
 }
 
 .elemento:hover {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .loadinghome {
   justify-content: center;
   margin-left: 400px;
   margin-top: 80px;
+}
+
+.botonpaginado {
+  display: block;
+  list-style: georgian;
+  padding: 0;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin-top: 30px;
+
 }

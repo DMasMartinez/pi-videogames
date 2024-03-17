@@ -6,7 +6,7 @@ const initial_state = {
     juegosearch : [],
     juegoscache : [],
     page : 1,
-    qt : 4,
+    qt : 15,
     count:0
 
 }
