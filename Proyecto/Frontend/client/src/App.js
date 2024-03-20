@@ -130,7 +130,7 @@ function App() {
       
       <Routes>
         <Route path='/' element={<Landing/>}/>
-        <Route path='/home' element={<Home gamespag={gamespag} showgames={showgames} totalgames={totalgames}/>}/>
+        <Route path='/home' element={<Home gamespag={gamespag} showgames={showgames} totalgames={totalgames} origen = {origen}/>}/>
         <Route path='/form' element={<Form/>}/>
         <Route path='/search' element={<Search name={name} setName={setName} games={games}/>}/>
         <Route path='/detail/:id' element={<Detail/>}/>

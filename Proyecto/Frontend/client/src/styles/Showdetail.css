@@ -1,8 +1,8 @@
 .framegame{
-    border: green inset;
+    border: rgb(212, 45, 11) inset;
     border-radius: 10px;
     border-width: 20px;
-    background-color: rgba(195, 0, 255, 0.7);
+    background-color: black;
     width: 1000px;
     min-height: 500px;
     background-size: 1000px 1100px;
@@ -11,13 +11,17 @@
     flex: 0 0 calc(60% - 10px); /* Establece el ancho de cada elemento de paginación */
     max-width: calc(100% - 10px); /* Establece el ancho máximo */
     
+    
 }
-.imagen img{
+.imagen {
+    display: flex;
     justify-content: center;
+    align-items: center;
+    align-content: center;
     border-radius: 10px;
     margin: 20px 0px 0px 5px;
     height: 400;
-    width: 400 ;
+    width: 100%;
     flex: 0 0 calc(100% - 10px); /* Establece el ancho de cada elemento de paginación */
     max-width: calc(100% - 10px); /* Establece el ancho máximo */
     
@@ -26,13 +30,19 @@
 .cardtexto {
     color: white;
     border: black;
-    background-color: rgba(136, 0, 255, 0.6);
+    background-color: black;
     word-wrap: break-word; /* Rompe palabras largas */
     overflow: hidden; /* Oculta el desbordamiento de texto */
 
 }
 
-/* background-image:url('../utils/detail.jpg'); */
-/* 
-height: 1500px;
-    width: 1000px; */
+
+.imagen img{
+    border-radius: 10px;
+    margin: 20px 0px 0px 5px;
+    height: 400;
+    width: 400 ;
+    flex: 0 0 calc(100% - 10px); /* Establece el ancho de cada elemento de paginación */
+    max-width: calc(100% - 10px); /* Establece el ancho máximo */
+        
+}

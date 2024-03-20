@@ -11,13 +11,13 @@ const Gamecard1 = (props) => {
             </div>
 
             <div className="cardtexto">
-                {location.pathname!=='/home'&&location.pathname!=='/search'?<h2>{props.name}</h2>:<a href={`/detail/${props.id}`}>{props.name}</a>}
-                {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.id}</h2>}
-                {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.description}</h2>} 
-                {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.devices}</h2>}
-                {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.release}</h2>}
-                {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.ratings}</h2>}
-                <h2>{props.genres}</h2>
+                {location.pathname!=='/home'&&location.pathname!=='/search'?<h2>Name :{props.name}</h2>:<a href={`/detail/${props.id}`}>{props.name}</a>}
+                {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>ID :{props.id}</h2>}
+                {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>Description :{props.description}</h2>} 
+                {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>Plataforms :{props.devices}</h2>}
+                {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>Release :{props.release}</h2>}
+                {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>Ratings :{props.ratings}</h2>}
+                <h2>Genre: {props.genres}</h2>
             </div>
         </div>
     )

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { allgames } from "../redux/actions";
 import { setallgames } from "../redux/actions";
 import mando from "../utils/pngegg.png"
-import crush from "../utils/crash.gif"
+import figura from "../utils/figuralanding.gif"
 const Landing =()=>{
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -29,10 +29,9 @@ const Landing =()=>{
         <>
         <div className="container">
             <img className="boton" src={mando} alt="mando" onClick={()=>gohome()}/>
-            
-            
+            <img src={figura} alt="figura" className="imagengif" onClick={()=>gohome()}/> 
         </div>
-        <img className="imagengif" src={crush} alt="crash"/>
+
         </>
     )
 }

@@ -27,19 +27,23 @@ const Detail = (props) => {
             .then(res=>res.json())
             .then(data=>setGeneros(data.Genres.map((game)=>game.genre+' ')))
     },[id])
-    console.log(counter)
-    function backtocurrentpage(){
-        dispatch(setpage(game.id,qt))
-        dispatch(setallgames(juegoscache))
-        navigate('/home')
-    }
-    console.log(counter)
+    // function backtocurrentpage(){
+    //     // dispatch(setpage(game.id,qt))
+    //     // dispatch(setallgames(juegoscache))
+    //     const index = juegos.findIndex(juego => juego.name === game.name);
+    //     const page = Math.ceil((index + 1) / qt)
+    //     navigate('/home')
+    //     return dispatch(setpage(page))
+    //     // dispatch(setpage(newpage[newpage.length-1]))
+        
+    // }
+    // console.log(pagina)
 
     return (
         <div class="container">
-            <button onClick={backtocurrentpage}>
+            {/* <button className="backbutton" onClick={backtocurrentpage}>
                 back
-            </button>
+            </button> */}
             <Gamecard1
                 id={game.id}
                 name={game.name}

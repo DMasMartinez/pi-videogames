@@ -209,24 +209,17 @@ const Form =()=>{
        
     };
 
-    function backtohome(){
-        navigate('/home')
-    }
-    console.log(error)
     return (
         <div class="form-container">
-            <button onClick={backtohome}>
-                back
-            </button>
             <form onSubmit={handleSubmit}>
-                <h2>Form</h2>
+                <h2 className="labelform">CREATE A GAME</h2>
                 <label class="form-label" htmlFor="name">name: </label>
                 <input class="form-input" name="name" value={game.name} onChange={handlerchange}/>
                 {error.name!==""&&<p className="errores">{error.name}</p>}
 
                 <label class="form-label" htmlFor="description">
                     description:
-                    <textarea name="description" rows={4} value={game.description} onChange={handlerchange}/>
+                    <textarea name="description" rows={4} cols={40} value={game.description} onChange={handlerchange}/>
                 </label>
                 
                 {/* <input class="form-input" name="description" value={game.description} onChange={handlerchange}/> */}

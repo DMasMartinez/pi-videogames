@@ -102,8 +102,8 @@ export const setpagedown = (page) =>{
     return {type:SETPAGEDOWN,payload:page-1}
 }
 
-export const setpage = (gameid,qt) =>{
-    return {type:SETPAGE,payload:Math.ceil(Number(gameid)/qt)}
+export const setpage = (newpage) =>{
+    return {type:SETPAGE,payload:newpage}
 }
 
 export const setcount = (count)=>{

@@ -1,7 +1,21 @@
 
 
 .container {
+    display: block;
     position: absolute; /* Establece el posicionamiento relativo */
     height: 1000px; /* Altura de ejemplo para el contenedor */
+    width: 100%;
+    align-items: center;
+
 
   }
+
+.backbutton {
+    padding: 8px 12px;
+    margin: 0 5px;
+    background-color:goldenrod;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}

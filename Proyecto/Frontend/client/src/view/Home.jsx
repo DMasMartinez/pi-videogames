@@ -35,7 +35,7 @@ const Home =(props)=>{
     },[])
 
 
-    console.log(juegos)
+    console.log(gamesbdd)
     return juegos.length>0?(
         <>
         <div className="botonpaginado">
@@ -46,7 +46,7 @@ const Home =(props)=>{
             
             
             {juegos.slice(initidx,finalidx).map((game,index)=>{
-                return (
+                return (props.origen==="API"?
                     <div className="elemento" key={index}>
                         <Gamecard
                             id={game.id}
@@ -58,7 +58,20 @@ const Home =(props)=>{
                             ratings={game.ratings}
                             genres={location.pathname==='/home'?game.Genres:game.Genres.map((game)=>game.genre+' ')}
                         />
+                    </div>:(
+                        <div className="elemento" key={index}>
+                        <Gamecard
+                            id={game.id}
+                            name={game.name}
+                            description={game.description}
+                            image={game.image}
+                            release={game.release}
+                            devices={game.devices}
+                            ratings={game.ratings}
+                            genres={location.pathname==='/home'?game.Genres.map((game)=>game.genre+' '):game.Genres.map((game)=>game.genre+' ')}
+                        />
                     </div>
+                    )
 
                 )
 
@@ -81,3 +94,6 @@ export default Home
 // genres={game.Genres.map((game)=>game.genre+' ')}
 
 // genres={game.Genres?game.Genres.map((game)=>game.genre+' '):generobdd.map((game)=>game.genre+' ')}
+
+
+// genres={location.pathname==='/home'?game.Genres:game.Genres.map((game)=>game.genre+' ')}

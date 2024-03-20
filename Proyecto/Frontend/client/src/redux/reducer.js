@@ -14,7 +14,7 @@ const initial_state = {
 const rootReducer = (state=initial_state,{type,payload})=>{
     switch (type){
         case ALLGAMES:
-            return {...state,juegos:[...payload],juegoscache:[...payload]}
+            return {...state,juegos:[...payload]}
         case GAMESEARCH:
             return {...state,juegosearch:payload}
             // return {...state,juegosearch:[...state.juegosearch,payload]}

@@ -37,6 +37,10 @@
     border: black;
     background-color: rgba(255, 100, 100, 0.6);
 }
+
+.cardtext h2 {
+    background-color: black;
+}
 .cardtext .nameshow{
     height: 100px;
     overflow: hidden;

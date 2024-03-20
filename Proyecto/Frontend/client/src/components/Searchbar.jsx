@@ -130,11 +130,11 @@ const Searchbar = (props) => {
                 {generos?generos.map((genre,index)=><option value={genre.genre} key={index}>{genre.genre}</option>):null}
             </select>
 
-            <select className="pestana" name="origen" onChange={handlerchange} value={props.origen}>
+            {location.pathname!='/search'&&<select className="pestana" name="origen" onChange={handlerchange} value={props.origen}>
                 <option value=" "> </option>
                 <option value="API">API</option>
                 <option value="BDD">BDD</option>
-            </select>
+            </select>}
             {location.pathname==='/home'?<button className="boton-gradiente" onClick={()=>props.cleardata(allgames)}>default</button>:<button className="boton-gradiente" onClick={()=>props.cleardatasearch(gamesearch)}>default</button>}
             
 
