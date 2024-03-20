@@ -8,10 +8,11 @@
   display: flex;
   list-style: none;
   padding: 0;
-  justify-content: left;
+  justify-content: center;
   flex-wrap: wrap;
   margin-top: 30px;
-  margin-right: 5px;
+  margin-right: 0px;
+  margin-left: 40px;
   gap: 10px;
 
 }
@@ -34,11 +35,15 @@
 }
 
 .botonpaginado {
-  display: block;
+  display: flex;
   list-style: georgian;
   padding: 0;
   justify-content: center;
-  flex-wrap: nowrap;
-  margin-top: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+  
+}
 
+.pagenumber {
+  color: white;
 }

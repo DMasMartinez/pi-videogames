@@ -8,6 +8,7 @@
     flex-wrap: wrap;
 }
 
+
 .elemento-search {
     flex: 0 0 calc(18% - 5px); 
     margin: 5px;

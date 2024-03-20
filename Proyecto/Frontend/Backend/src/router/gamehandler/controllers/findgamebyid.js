@@ -18,7 +18,7 @@ const findgamebyid = async(id) =>{
         gamebyid.dataValues.genres = genredata
         return gamebyid.dataValues
     }
-    const apigame = await fetch(`https://api.rawg.io/api/games/${id}?key=f365d38e7dd34a0fa6f6f14135d94e13`)
+    const apigame = await fetch(`https://api.rawg.io/api/games/${id}?key=c58977baa48f48a2b4a0cb43a9436d91`)
     const data = await apigame.json()
     const gamegenres = data.genres.map((genre)=>genre.name)
     const ides = allgeneros.filter((genre)=>gamegenres.includes(genre.genre)).map((genre)=>genre.id)

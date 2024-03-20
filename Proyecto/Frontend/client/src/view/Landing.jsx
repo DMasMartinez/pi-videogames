@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
-import videogames_image from "./Videogames-Graphics-46817874-1.png"
 import '../styles/Landing.css'
 import { useDispatch,useSelector } from "react-redux";
 import { useEffect } from "react";
 import { allgames } from "../redux/actions";
 import { setallgames } from "../redux/actions";
+import mando from "../utils/pngegg.png"
+import crush from "../utils/crash.gif"
 const Landing =()=>{
     const navigate = useNavigate()
     const dispatch = useDispatch()
@@ -25,10 +26,14 @@ const Landing =()=>{
     },[])
     
     return(
-        <div class="container">
-            <button class="boton" onClick={()=>gohome()}>Home</button>
-            <img src={videogames_image}/>
+        <>
+        <div className="container">
+            <img className="boton" src={mando} alt="mando" onClick={()=>gohome()}/>
+            
+            
         </div>
+        <img className="imagengif" src={crush} alt="crash"/>
+        </>
     )
 }
 

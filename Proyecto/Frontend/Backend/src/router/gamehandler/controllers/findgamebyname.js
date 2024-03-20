@@ -32,7 +32,7 @@ const findgamebyname =async(name)=>{
         // findgame.dataValues.genres = genresgames// creamos la propiedad genres y le anadimos lo que conseguirmos por api
         // return findgame.dataValues
     }else{
-        const newgame = await fetch(`https://api.rawg.io/api/games?search=${name}&key=f365d38e7dd34a0fa6f6f14135d94e13`)
+        const newgame = await fetch(`https://api.rawg.io/api/games?search=${name}&key=c58977baa48f48a2b4a0cb43a9436d91`)
         const data = await newgame.json()
         
         // for (var i=0;i<allgeneros.length;i++){

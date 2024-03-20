@@ -5,12 +5,12 @@ import '../styles/Showdetail.css'
 const Gamecard1 = (props) => {
     const location = useLocation()
     return (
-        <div class="framegame">
-            <div class="imagen">
+        <div className="framegame">
+            <div className="imagen">
                 <img src={props.image} alt={props.name}/>
             </div>
 
-            <div class="cardtexto">
+            <div className="cardtexto">
                 {location.pathname!=='/home'&&location.pathname!=='/search'?<h2>{props.name}</h2>:<a href={`/detail/${props.id}`}>{props.name}</a>}
                 {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.id}</h2>}
                 {location.pathname!=='/home'&&location.pathname!=='/search'&&<h2>{props.description}</h2>} 

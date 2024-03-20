@@ -28,35 +28,26 @@ const Home =(props)=>{
     let currentgames = juegos
     const [aux,setAux]=useState([])
     
-    // function listatoconcat(){
-    //     if (gamesbdd.length>0){
-    //         setAux([...currentgames,...gamesbdd])
-    //         dispatch(setallgames(aux))
-    //     }
-    // }
+ 
 
     useEffect(()=>{
         dispatch(allgames())
     },[])
 
 
-
-    // useEffect(()=>{
-    //     if (count===0){
-    //         dispatch(allgames())
-    //         listatoconcat()
-    //     }
-    //     // dispatch(setcount(count))
-    // },[])
-
-
     console.log(juegos)
     return juegos.length>0?(
+        <>
+        <div className="botonpaginado">
+            <Pagination qt={qt} juegos={juegos} pagina= {pagina}/>
+        </div>
+        
         <div className="contenedor">
             
-            {juegos.slice(initidx,finalidx).map((game)=>{
+            
+            {juegos.slice(initidx,finalidx).map((game,index)=>{
                 return (
-                    <div className="elemento">
+                    <div className="elemento" key={index}>
                         <Gamecard
                             id={game.id}
                             name={game.name}
@@ -70,17 +61,19 @@ const Home =(props)=>{
                     </div>
 
                 )
+
             })}
-            <div className="botonpaginado">
-                <Pagination qt={qt} juegos={juegos}/>
-            </div>
+            
             {/* <div>
                 <button onClick={()=>previouspage()}>previous</button>
                 <button onClick={()=>nextpage()}>next</button>
             </div> */}
         </div>
+        </>
+        
 
     ):<div className="loadinghome"><img src={loadingif}/></div>
+    
 }
 
 export default Home

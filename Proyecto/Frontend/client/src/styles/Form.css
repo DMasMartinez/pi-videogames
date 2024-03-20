@@ -14,6 +14,15 @@
     font-weight: bold;
     margin-bottom: 5px;
     color: white;
+    margin-right: 5px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .form-label-fecha{
+    color:white;
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: block;
   }
   .pestana-search {
     padding: 10px 20px;
@@ -34,10 +43,11 @@
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    margin-bottom: 8px;
   }
   
   .form-button {
-    background-color: #007bff;
+    background-color: #ffd000;
     color: #fff;
     padding: 10px 20px;
     font-size: 16px;
@@ -46,9 +56,19 @@
     cursor: pointer;
     margin-left: 5px;
   }
+  .form-button-disabled {
+    background-color: gray;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: solid;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 5px;
+  }
   
   .form-button:hover {
-    background-color: #0056b3;
+    background-color: green;
   }
   
   .error-message {
@@ -66,4 +86,37 @@
 
   .errores {
   color: red;
+}
+
+ .form-container textarea{
+  margin-right: 100px;
+ }
+
+ .form-container.checklist {
+  display: flex;
+  flex-wrap: wrap;
+ }
+ .checklist2 {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 16px;
+ }
+
+ .form-container.checklist[type="checkbox"] {
+  /* Define el ancho de cada columna */
+  flex: 0 0 calc(33.33% - 10px); /* 33.33% para 3 columnas */
+  margin-right: 10px; /* Espacio entre los checkboxes */
+}
+
+.form-container .fecha {
+  display: flex;
+  margin-right: 10em;
+  width: 20em;
+  
+}
+
+.form-container .fecha .form-input {
+  margin-right: 5px;
+  width: 35px;
+  margin-top: 5px;
 }

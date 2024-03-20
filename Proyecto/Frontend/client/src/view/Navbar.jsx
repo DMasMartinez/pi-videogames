@@ -9,10 +9,10 @@ const Navbar = () =>{
             </Link>
             <div className="lista">
                 <Link to="/home">
-                    <span class="home">Home</span>
+                    <span className="home">Home</span>
                 </Link>
                 <Link to="Form">
-                    <span class="form">Form</span>
+                    <span className="form">Form</span>
                 </Link>
             </div>
             {/* <a className="landing" href="/">

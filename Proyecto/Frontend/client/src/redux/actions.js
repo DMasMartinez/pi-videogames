@@ -18,7 +18,7 @@ export const allgames =()=>{
         let URL = `https://api.rawg.io/api/games?key=f365d38e7dd34a0fa6f6f14135d94e13`
         const arrayindex = Array.from({ length: 8 }, (_, index) => index+2)
         const todojuego = arrayindex.map(async(valor)=>{
-                const games = await fetch(`https://api.rawg.io/api/games?key=f365d38e7dd34a0fa6f6f14135d94e13&page=${valor}`)
+                const games = await fetch(`https://api.rawg.io/api/games?key=c58977baa48f48a2b4a0cb43a9436d91&page=${valor}`)
                 const data = games.json()
                 return data
     

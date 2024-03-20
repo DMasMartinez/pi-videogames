@@ -32,8 +32,20 @@
 .navbar a:hover {
     background-color: #ddd; /* Cambio de color de fondo al pasar el cursor */
     color: black; /* Cambio de color de texto al pasar el cursor */
+    transform: scale(1.25, 1.25);
 }
+
 
 .active {
     background-color: #4CAF50; /* Color de fondo del elemento activo */
+}
+
+@media(max-width: 600px){
+    .navbar{
+        gap: 1rem;
+    }
+
+    .navbar a{
+        gap: 1rem;
+    }
 }

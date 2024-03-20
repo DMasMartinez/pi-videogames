@@ -109,28 +109,28 @@ const Searchbar = (props) => {
 
     console.log(generos)
     return (
-        <div class="searchbar">
-            <button class="boton-gradiente" onClick={()=>busqueda(props.name)}>search</button>
-            <input name="nombre" value={props.name} onChange={handlerchange1} class="input-search"/>
-            <label class="label">Alfabetic</label>
-            <select class ="pestana" onChange={handlerchange} name="alfabetic" value={alfaopt}>
+        <div className="searchbar">
+            <button className="boton-gradiente" onClick={()=>busqueda(props.name)}>search</button>
+            <input name="nombre" value={props.name} onChange={handlerchange1} className="input-search"/>
+            <label className="label">Alfabetic</label>
+            <select className ="pestana" onChange={handlerchange} name="alfabetic" value={alfaopt}>
                 <option value=""> </option>
                 <option value="A-Z">A-Z</option>
                 <option value="Z-A">Z-A</option>
             </select>
-            <label class="label">Ratings</label>
-            <select class="pestana" onChange={handlerchange} name="rating" value={ratingopt}>
+            <label className="label">Ratings</label>
+            <select className="pestana" onChange={handlerchange} name="rating" value={ratingopt}>
                 <option value=""> </option>
                 <option value="ascendente">ascendente</option>
                 <option value="descendente">descendente</option>
             </select>
-            <label class="label">Genre</label>
-            <select class="pestana" onChange={handlerchange} name="genre" value={genero}>
+            <label className="label">Genre</label>
+            <select className="pestana" onChange={handlerchange} name="genre" value={genero}>
                 <option value=""> </option>
-                {generos?generos.map((genre)=><option value={genre.genre}>{genre.genre}</option>):null}
+                {generos?generos.map((genre,index)=><option value={genre.genre} key={index}>{genre.genre}</option>):null}
             </select>
 
-            <select class="pestana" name="origen" onChange={handlerchange} value={props.origen}>
+            <select className="pestana" name="origen" onChange={handlerchange} value={props.origen}>
                 <option value=" "> </option>
                 <option value="API">API</option>
                 <option value="BDD">BDD</option>
