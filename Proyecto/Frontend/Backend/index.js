@@ -1,13 +1,14 @@
+require("dotenv").config();
+
 const server = require("./src/server");
 const { database } = require("./src/db");
 
-const PORT = 3001;
-
+const port = process.env.PORT || 3001;
 database
   .sync({ force: true })
   .then(async () => {
-    await server.listen(PORT, () => {
-      console.log(`abriendo servidor en terminal ${PORT}`);
+    await server.listen(port, () => {
+      console.log(`abriendo servidor en terminal ${port}`);
     });
   })
   .catch((error) => console.log(error));
