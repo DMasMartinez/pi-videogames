@@ -1,6 +1,7 @@
 import {ALLGAMES,GAMESEARCH,ALLGENRES,GAMESBDD, SETALLGAMES, SETPAGEUP, SETPAGEDOWN,SETPAGE, SETCOUNT, SETPAGETOONE, SETALLSEARCHGAMES} from './action-type'
 
 export const allgames =()=>{
+    // print ("hola")
     // return async function (dispatch){
     //     const arrayindex = Array.from({ length: 20 }, (_, index) => index+1)
     //     const games = arrayindex.map(async(i)=>{
