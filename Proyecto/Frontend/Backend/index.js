@@ -9,6 +9,7 @@ database
   .then(async () => {
     await server.listen(port, () => {
       console.log(`abriendo servidor en terminal ${port}`);
+      console.log(database);
     });
   })
   .catch((error) => console.log(error));
