@@ -3,7 +3,7 @@ require("dotenv").config();
 const server = require("./src/server");
 const { database } = require("./src/db");
 
-const port = process.env.PORT || 3001;
+const port = 3001;
 database
   .sync({ force: true })
   .then(async () => {
@@ -12,3 +12,5 @@ database
     });
   })
   .catch((error) => console.log(error));
+
+// process.env.PORT ||

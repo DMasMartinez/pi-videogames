@@ -6,6 +6,7 @@ const findgamebyname = require("./controllers/findgamebyname");
 const findgamebyid = require("./controllers/findgamebyid");
 const creategame = require("./controllers/creategame");
 const uploadGamePicture = require("../middleware/uploadGamePicture.js");
+const cloudinary = require("cloudinary").v2;
 
 // gamehandler.get('/',async(req,res)=>{
 //     try{
@@ -33,6 +34,7 @@ gamehandler.post(
     try {
       console.log(req.file.path);
       const imageUrl = req.file.path;
+      cloudinary.uploader.upload(imageUrl);
       res.status(200).json({ imageUrl: imageUrl });
     } catch (error) {
       console.log(error.message);
