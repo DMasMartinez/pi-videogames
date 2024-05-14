@@ -5,6 +5,7 @@ import { allgenres } from "../redux/actions";
 import { useNavigate } from "react-router-dom";
 import Validation from "./Validation";
 import Validation1 from "./Validation1";
+import axios from "axios";
 import "../styles/Form.css";
 
 const { v4: uuidv4 } = require("uuid");
@@ -207,16 +208,13 @@ const Form = () => {
 
     try {
       console.log(game);
-      const response = await fetch(
-        "https://pi-videogames-at22.onrender.com/game/",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(game),
-        }
-      );
+      const response = await fetch("http://localhost:3001/game/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(game),
+      });
 
       if (response.ok) {
         const nuevoRegistro = await response.json();
@@ -232,8 +230,8 @@ const Form = () => {
       description: "",
       devices: [],
       release: "",
-      image: pacman,
       ratings: "",
+      image: pacman,
       Genres: setGame({
         ...game,
         Genres: game.Genres.map((genero) => {
@@ -246,10 +244,45 @@ const Form = () => {
     // blankinputgenres()
   };
 
+  const uploadPicture = async (event) => {
+    console.log(event.target.files[0]);
+    const formData = new FormData();
+    formData.append("picture", event.target.files[0]);
+
+    try {
+      const response = await axios.post(
+        "http://localhost:3001/game/upload-profile-picture",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log(response.data);
+      setGame((prev) => {
+        return { ...prev, image: response.data.imageUrl };
+      });
+    } catch (error) {
+      console.error("Error al enviar la solicitud:", error);
+    }
+  };
+
   return (
     <div class="form-container">
       <form onSubmit={handleSubmit}>
         <h2 className="labelform">CREATE A GAME</h2>
+        <label class="form-label" htmlFor="figura">
+          image:{" "}
+        </label>
+        <input
+          class="form-input"
+          name="picture"
+          type="file"
+          onChange={uploadPicture}
+        />
+
         <label class="form-label" htmlFor="name">
           name:{" "}
         </label>
