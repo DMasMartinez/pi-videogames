@@ -208,13 +208,16 @@ const Form = () => {
 
     try {
       console.log(game);
-      const response = await fetch("http://localhost:3001/game/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(game),
-      });
+      const response = await fetch(
+        "https://videogames-v7uq.onrender.com/game/",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(game),
+        }
+      );
 
       if (response.ok) {
         const nuevoRegistro = await response.json();
@@ -251,7 +254,7 @@ const Form = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:3001/game/upload-profile-picture",
+        "https://videogames-v7uq.onrender.com/game/upload-profile-picture",
         formData,
         {
           headers: {

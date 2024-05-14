@@ -18,12 +18,12 @@ const Detail = (props) => {
   const juegoscache = useSelector((state) => state.juegoscache);
   const juegos = useSelector((state) => state.juegos);
   useEffect(() => {
-    fetch(`http://localhost:3001/game/${id}`)
+    fetch(`https://videogames-v7uq.onrender.com/game/${id}`)
       .then((res) => res.json())
       .then((data) => setGame(data));
   }, [id]);
   useEffect(() => {
-    fetch(`http://localhost:3001/game/${id}`)
+    fetch(`https://videogames-v7uq.onrender.com/game/${id}`)
       .then((res) => res.json())
       .then((data) => setGeneros(data.Genres.map((game) => game.genre + " ")));
   }, [id]);

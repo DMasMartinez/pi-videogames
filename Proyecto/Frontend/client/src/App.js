@@ -25,7 +25,7 @@ function App() {
   const juegos = useSelector((state) => state.juegos);
   const search = async (name) => {
     const api = await fetch(
-      `https://pi-videogames-at22.onrender.com/game/?name=${name}`
+      `https://videogames-v7uq.onrender.com/game/?name=${name}`
     );
     const res = await api.json();
     setGames([...games, res]);
@@ -36,9 +36,7 @@ function App() {
   const showgames = async () => {
     const arrayindex = Array.from({ length: 100 }, (_, index) => index + 1);
     const games = arrayindex.map(async (i) => {
-      const res = await fetch(
-        `https://pi-videogames-at22.onrender.com/game/${i}`
-      );
+      const res = await fetch(`https://videogames-v7uq.onrender.com/game/${i}`);
       const data = await res.json();
       return data;
     });

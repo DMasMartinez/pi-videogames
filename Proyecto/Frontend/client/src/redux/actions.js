@@ -70,7 +70,7 @@ export const gamesearch = (name) => {
     //       reject(error); // Rechaza la promesa si hay un error
     //     }
     //   });
-    await fetch(`http://localhost:3001/game/?name=${name}`)
+    await fetch(`https://videogames-v7uq.onrender.com/game/?name=${name}`)
       .then((res) => res.json())
       .then((data) => dispatch({ type: GAMESEARCH, payload: data }));
   };
@@ -78,7 +78,7 @@ export const gamesearch = (name) => {
 
 export const allgenres = () => {
   return async function (dispatch) {
-    fetch(`http://localhost:3001/genre/`)
+    fetch(`https://videogames-v7uq.onrender.com/genre/`)
       .then((res) => res.json())
       .then((data) => dispatch({ type: ALLGENRES, payload: data }));
   };
@@ -91,7 +91,7 @@ export const gamesbdd = () => {
   //         .then(data=>dispatch({type:GAMESBDD,payload:[...data.filter((game)=>game.id.length>6)]}))
   // }
   return async function (dispatch) {
-    const response = await fetch("http://localhost:3001/game/");
+    const response = await fetch("https://videogames-v7uq.onrender.com/game/");
     const data = await response.json();
     const newdata = data.filter((data) => data.id.length > 8);
 
