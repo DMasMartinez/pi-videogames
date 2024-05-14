@@ -5,6 +5,16 @@ const findallgames = require("./controllers/findallgames");
 const findgamebyname = require("./controllers/findgamebyname");
 const findgamebyid = require("./controllers/findgamebyid");
 const creategame = require("./controllers/creategame");
+const uploadGamePicture = require("../middleware/uploadGamePicture");
+
+// gamehandler.get('/',async(req,res)=>{
+//     try{
+//         const allgames = await findallgames()
+//         res.status(200).json(allgames)
+//     }catch(error){
+//         res.status(500).json({error:error.message})
+//     }
+// })
 
 gamehandler.get("/", async (req, res) => {
   try {
@@ -15,6 +25,21 @@ gamehandler.get("/", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+gamehandler.post(
+  "/upload-profile-picture",
+  uploadGamePicture,
+  async (req, res) => {
+    try {
+      console.log(req.file.path);
+      const imageUrl = req.file.path;
+      res.status(200).json({ imageUrl: imageUrl });
+    } catch (error) {
+      console.log(error.message);
+      res.status(500).json({ error: error.message });
+    }
+  }
+);
 
 gamehandler.get("/:id", async (req, res) => {
   try {
