@@ -5,7 +5,7 @@ const findallgames = require("./controllers/findallgames");
 const findgamebyname = require("./controllers/findgamebyname");
 const findgamebyid = require("./controllers/findgamebyid");
 const creategame = require("./controllers/creategame");
-const uploadGamePicture = require("../middleware/uploadGamePicture");
+const uploadGamePicture = require("../middleware/uploadGamePicture.js");
 
 // gamehandler.get('/',async(req,res)=>{
 //     try{

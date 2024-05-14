@@ -29,7 +29,7 @@ const upload = multer({ storage: storage });
 // Middleware to handle image upload
 const uploadGamePicture = (req, res, next) => {
   // Use the middleware to handle single file upload
-  console.log(req.body);
+  // console.log(req.body);
   upload.single("picture")(req, res, function (err) {
     if (err instanceof multer.MulterError) {
       return res.status(400).json({ message: "Error uploading image" });
